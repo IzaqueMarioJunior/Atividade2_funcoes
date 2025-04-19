@@ -1,0 +1,77 @@
+conta = 0
+sacado = []
+depositado = []
+usuarios = []
+senhas = []
+
+def cadastrar_usuario():
+  nome = input("Digite seu nome: ")
+  senha = input("Digite sua senha: ")
+  usuarios.append(nome)
+  senhas.append(senha)
+def fazer_login():
+  nome_login = input("Digite seu nome: ")
+  senha_login = input("Digite sua senha: ")
+  if nome_login in usuarios and senha_login in senhas:
+    return True
+  else:
+    print("Login falhou")
+    print("Deseja cadastrar um novo usuario?")
+    print("1 - Sim")
+    print("2 - Não")
+    opcao = int(input("Digite a opção desejada: "))
+    if opcao == 1:
+      cadastrar_usuario()
+      print("Usuario cadastrado com sucesso")
+      return True
+    else:
+      print("Saindo...")
+    return False
+def deposito():
+  dinheiro = 0
+  valor_depositado = float(input("Digite o valor a ser depositado: "))
+  dinheiro = dinheiro + valor_depositado
+  dinheiro = dinheiro + conta
+  depositado.append(valor_depositado)
+  print("Saldo atual: ", dinheiro)
+  print("Depositos: ", depositado)
+  return dinheiro, valor_depositado, conta
+def saque():
+  dinheiro = 0
+  valor_sacado = float(input("Digite o valor a ser sacado: "))
+  print("quantos saques deseja fazer?")
+  saques = int(input("Digite a quantidade de saques: "))
+  for i in range(saques)
+  dinheiro = dinheiro + depositado.index(i)
+  if valor_sacado < dinheiro:
+     dinheiro = dinheiro - valor_sacado
+  else:
+    print("Saldo insuficiente")
+  sacado.append(valor_sacado)
+  print("Saldo atual: ", dinheiro)
+  print("Saques: ", sacado)
+  return dinheiro
+while True:
+  print("Bem vindo ao banco")
+  
+  print("1 - cadastrar usuario")
+  print("2 - Fazer login")
+  print("3 - Depositar")
+  print("4 - Sacar")
+  print("5 - Sair")
+  opcao = int(input("Digite a opção desejada: "))
+  if opcao == 1:
+    cadastrar_usuario()
+    print("Usuario cadastrado com sucesso")
+  elif opcao == 2:
+    fazer_login()
+    print("Login feito com sucesso")
+  elif opcao == 3:
+    deposito()
+    print("Deposito feito com sucesso")
+  elif opcao == 4:
+    saque()
+    print("Saque feito com sucesso")
+  elif opcao == 5:
+    print("Saindo...")
+    break
